@@ -12,6 +12,32 @@ class View {
     if(src) {
       video.controls = true
       video.loop = true
+      Util.sleeep(200).then(_ => video.play())
     }
+
+    if(srcObject) {
+      video.addEventListener('loadedmetadata', _ => video.play())
+    }
+
+    return video
+  }
+
+  renderVideo({userId, stream = null, url=null, isCurrentId = false}) {
+    const video = this.createVideoElement({src: url, srcObject: stream})
+    this.appendToHtmlTree(userId, video, isCurrentId )
+  }
+
+  appendToHtmlTree(userId, video, isCurrentId ) {
+    const div = document.createElement('div')
+    div.id = userId
+    div.classList.add('wrapper')
+    div.append(video)
+
+    const div2 = document.createElement('div')
+    div.innerText = isCurrentId ? '' : userId
+    div.append(div2)
+
+    const videGrid = document.getElementById('video-grid')
+    videGrid.append(div)
   }
 }
