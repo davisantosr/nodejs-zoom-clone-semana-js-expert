@@ -13,9 +13,11 @@ const onload = () => {
   const room = urlParams.get('room');
   console.log('this is the room', room)
 
-  const recorderBtn = document.getElementById('record')
-  recorderBtn.addEventListener('click', recordClick(recorderBtn))
+  // const recorderBtn = document.getElementById('record')
+  // recorderBtn.addEventListener('click', recordClick(recorderBtn))
 
+  const view = new View()
+  view.renderVideo({userId:'test01', url:'https://media.giphy.com/media/xjx79TeJd0RKK9rsp7/giphy.mp4'})
 }
 
 window.onload = onload

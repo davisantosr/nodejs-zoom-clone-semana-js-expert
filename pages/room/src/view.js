@@ -9,14 +9,16 @@ class View {
     video.src = src
     video.srcObject = srcObject
 
+    console.log('createVideoElement')
+
     if(src) {
       video.controls = true
       video.loop = true
-      Util.sleeep(200).then(_ => video.play())
+      Util.sleep(300).then(_ => video.play())
     }
 
     if(srcObject) {
-      video.addEventListener('loadedmetadata', _ => video.play())
+      video.addEventListener("loadedmetadata", _ => video.play())
     }
 
     return video
@@ -34,7 +36,7 @@ class View {
     div.append(video)
 
     const div2 = document.createElement('div')
-    div.innerText = isCurrentId ? '' : userId
+    div2.innerText = isCurrentId ? '' : userId
     div.append(div2)
 
     const videGrid = document.getElementById('video-grid')

@@ -1,5 +1,5 @@
 class Util {
-  static sleeep(ms) {
+  static sleep(ms) {
     return new Promise(r => setTimeout(r, ms))
   }
 }
