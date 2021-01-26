@@ -17,7 +17,14 @@ const onload = () => {
   // recorderBtn.addEventListener('click', recordClick(recorderBtn))
 
   const view = new View()
-  view.renderVideo({userId:'test01', url:'https://media.giphy.com/media/xjx79TeJd0RKK9rsp7/giphy.mp4'})
+  const media = new Media()
+  const deps = {
+    view, 
+    media, 
+    room
+  }
+
+  Business.initialize(deps)
 }
 
 window.onload = onload
